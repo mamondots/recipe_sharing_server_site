@@ -1,6 +1,7 @@
 import express from 'express';
 import { recipeRoutes } from '../modules/recipe/recipe.route';
 import { upvotedRoutes } from '../modules/upvotedownvote/upvotedownvote.route';
+import { CommentRoutes } from '../modules/comment/comment.route';
 const router = express.Router();
 
 const moduleRoutes = [
@@ -11,6 +12,10 @@ const moduleRoutes = [
   {
     path: '/upvotedownvote',
     route: upvotedRoutes,
+  },
+  {
+    path: '/comment',
+    route: CommentRoutes,
   },
 ];
 

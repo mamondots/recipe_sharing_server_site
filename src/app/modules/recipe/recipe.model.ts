@@ -8,7 +8,7 @@ const recipeSchema = new Schema<TRecipe>(
     ingredients: [{ type: String, required: true }],
     instructions: { type: String, required: true },
     image: [{ type: String, required: true }], // Array of image URLs as strings
-    author: {
+    user: {
       type: Schema.Types.ObjectId,
       ref: 'User',
       required: true,

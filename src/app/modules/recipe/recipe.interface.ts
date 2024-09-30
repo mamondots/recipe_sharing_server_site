@@ -6,7 +6,7 @@ export type TRecipe = {
   ingredients: string[];
   instructions: string;
   image: string[];
-  author: ObjectId;
+  user: ObjectId;
   ratings: number[];
   comments: ObjectId[];
   upvotes: ObjectId[];
