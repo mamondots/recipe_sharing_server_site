@@ -2,10 +2,18 @@ import httpStatus from 'http-status';
 import { catchAsync } from '../../utils/catchAsync';
 import sendResponse from '../../utils/sendResponse';
 import { recipeService } from './recipe.service';
+import AppError from '../../errors/AppError';
+import { TImageFiles } from '../../interfaces/image.interface';
 
 const createRecipe = catchAsync(async (req, res) => {
+  if (!req.files) {
+    throw new AppError(400, 'Please upload an image');
+  }
   const recipeData = req.body;
-  const result = await recipeService.createRecipeToBd(recipeData);
+  const result = await recipeService.createRecipeToBd(
+    recipeData,
+    req.files as TImageFiles,
+  );
 
   sendResponse(res, {
     success: true,

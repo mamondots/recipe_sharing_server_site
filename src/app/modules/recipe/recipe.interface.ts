@@ -5,7 +5,7 @@ export type TRecipe = {
   description: string;
   ingredients: string[];
   instructions: string;
-  image: string[];
+  images: string[];
   user: ObjectId;
   ratings: number[];
   comments: ObjectId[];

@@ -1,7 +1,10 @@
+import { TImageFiles } from '../../interfaces/image.interface';
 import { TRecipe } from './recipe.interface';
 import { recipeModel } from './recipe.model';
 
-const createRecipeToBd = async (recipe: TRecipe) => {
+const createRecipeToBd = async (recipe: TRecipe, images: TImageFiles) => {
+  const { itemImages } = images;
+  recipe.images = itemImages.map((image) => image.path);
   const result = await recipeModel.create(recipe);
   return result;
 };
